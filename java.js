@@ -1,27 +1,20 @@
 let humanChoice;
-let computerChoice = Math.floor(Math.random() * 3) + 1
 let humanScore = 0
 let computerScore = 0
 let trials = 5
-const computerSelection = getComputerChoice()
 
 
 function getComputerChoice() {
-    switch (computerChoice) {
-        case(1) :
-        computerChoice = "Rock"
-        break;
-
-        case(2) :
-        computerChoice = "Paper"
-        break;
-
-        case(3) :
-        computerChoice = "Scissors"
-        break;
+    let computerChoice = Math.floor(Math.random() * 3) + 1
+    if (computerChoice === 1) {
+        return "rock"
     }
-    computerChoice = computerChoice.toLowerCase()
-    return computerChoice
+    else if (computerChoice === 2) {
+        return "paper"
+    }
+    else {
+        return "scissors"
+    }
 }
 
 
@@ -33,6 +26,7 @@ const finalResult = document.querySelector(".ending")
 
 
 function playRound(event) {
+    const computerSelection = getComputerChoice()
     let target = event.target
     if (target.id === "rock" && computerSelection === "scissors" 
             || target.id === "paper" && computerSelection === "rock"
